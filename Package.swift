@@ -5,8 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "GSPlayer",
-    platforms: [.iOS(.v10),
-                .macOS(.v10_12)],
+    platforms: [.iOS(.v14),
+                .macOS(.v11),
+                .tvOS(.v14)],
     products: [
         .library(
             name: "GSPlayer",

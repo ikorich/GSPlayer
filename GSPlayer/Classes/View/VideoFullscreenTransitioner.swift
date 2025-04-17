@@ -76,7 +76,7 @@ private extension VideoFullscreenTransitioner {
         toView.setNeedsLayout()
         toView.layoutIfNeeded()
         containerView.addSubview(toView)
-        
+        #if os(iOS)
         switch toViewController.preferredInterfaceOrientationForPresentation {
         case .landscapeLeft:
             toView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
@@ -84,6 +84,7 @@ private extension VideoFullscreenTransitioner {
             toView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         default: break
         }
+        #endif
         
         fullscreenControls.forEach { $0.alpha = 0 }
         fullscreenPlayerView.layer.addSublayer(playerView.playerLayer)
